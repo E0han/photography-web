@@ -10,10 +10,14 @@
 			<div style="width: 300px;height: 100px;background:url({{main_logo_address}});background-size:cover;opacity: 0.9"></div>
 		<br>
 		<br>
-		<div>Home</div><br>
-		<div>First</div><br>
-		<div>Second</div><br>
+		<div><p onclick="goto('{% url 'blog:index' %}')" style="cursor:pointer">Home</p></div>
+		<div><p onclick="goto('{% url 'blog:spec' %}')" style="cursor:pointer">SPEC</p></div><br>
 		</div>
+		<div style="margin-left: 350px;width:500px;height:100%">
+			<h3>{{title}}</h3><br><br>
+			<p>{{content}}</p>
+		</div>
+
 </div>
 </body>
 </html>
