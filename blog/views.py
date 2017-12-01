@@ -15,8 +15,10 @@ def test(request):
 	show['js_address']='/static/js/main.js'
 	show['main_logo_address']='/static/img/logo/logo2.png'
 	a=Introductions.objects.filter(brief_intro='spec')
-	b=list(a.values('title'))
-	show['title']=b[0]['title']
-	c=list(a.values('content'))
-	show['content']=c[0]['content']
+	title=a.values('title')[0]['title']
+	content=a.values('content')[0]['content']
+	file=a.values('file')[0]['file']
+	show['title']=title
+	show['content']=content
+	show['file']='/'+file
 	return render(request, 'spec.html', show)
