@@ -31,41 +31,42 @@ ALLOWED_HOSTS = ['192.168.1.7','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'blog',
+	'django.contrib.admin',
+	'django.contrib.auth',
+	'django.contrib.contenttypes',
+	'django.contrib.sessions',
+	'django.contrib.messages',
+	'django.contrib.staticfiles',
+	'django.contrib.sites',
+	'blog',
 ]
+SITE_ID = 1
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+	'django.middleware.security.SecurityMiddleware',
+	'django.contrib.sessions.middleware.SessionMiddleware',
+	'django.middleware.common.CommonMiddleware',
+	'django.middleware.csrf.CsrfViewMiddleware',
+	'django.contrib.auth.middleware.AuthenticationMiddleware',
+	'django.contrib.messages.middleware.MessageMiddleware',
+	'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'web.urls'
-
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR+"/templates",],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+	{
+		'BACKEND': 'django.template.backends.django.DjangoTemplates',
+		'DIRS': [BASE_DIR+"/templates",],
+		'APP_DIRS': True,
+		'OPTIONS': {
+			'context_processors': [
+				'django.template.context_processors.debug',
+				'django.template.context_processors.request',
+				'django.contrib.auth.context_processors.auth',
+				'django.contrib.messages.context_processors.messages',
+			],
+		},
+	},
 ]
 
 WSGI_APPLICATION = 'web.wsgi.application'
@@ -75,10 +76,10 @@ WSGI_APPLICATION = 'web.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
 }
 
 
@@ -86,18 +87,18 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+	{
+		'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+	},
+	{
+		'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+	},
 ]
 
 
@@ -117,13 +118,28 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-import os
 SITE_ROOT=os.path.join(os.path.abspath(os.path.dirname(__file__)),'..')
 STATIC_ROOT = os.path.join(SITE_ROOT,'static')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    ("css", os.path.join(STATIC_ROOT,'css')),
-    ("js", os.path.join(STATIC_ROOT,'js')),
-    ("img", os.path.join(STATIC_ROOT,'img')),
+	("css", os.path.join(STATIC_ROOT,'css')),
+	("js", os.path.join(STATIC_ROOT,'js')),
+	("img", os.path.join(STATIC_ROOT,'img')),
 )
+
+
+SUIT_CONFIG = {
+	'ADMIN_NAME': 'admin',
+	'HEADER_DATE_FORMAT': '',
+	'HEADER_TIME_FORMAT': 'H:i',
+	'SHOW_REQUIRED_ASTERISK': True,
+	'CONFIRM_UNSAVED_CHANGES': True,
+	'LIST_PER_PAGE': 20,
+	'MENU_OPEN_FIRST_CHILD': True,
+	'MENU':(
+		{
+		'url':'/admin/test','label':'test'
+		}
+		)
+	}

@@ -1,4 +1,6 @@
 from django.db import models
+from django.conf import settings
+from django.core.files import File
 
 # Create your models here.
 class Introductions(models.Model):
@@ -9,13 +11,3 @@ class Introductions(models.Model):
 	pub_date = models.DateTimeField('date published',auto_now_add=True,editable = True)#publish date
 	def __str__(self):# 在Python3中用 __str__ 代替 __unicode__
 		return self.brief_intro
-	def mkdir(self,path):
-		import os
-		path=path.strip()
-		path=path.rstrip("\\")
-		isExists=os.path.exists(path)#判断路径是否存在
-		if not isExists:
-			os.makedirs(path)
-			return True
-		else:
-			return False
