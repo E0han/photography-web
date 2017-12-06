@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.SetIndexBackroundImg,name='index'),
-    url(r'^spec/',views.test,name='spec'),
+    url(r'^spec/',views.spec,name='spec'),
 ]

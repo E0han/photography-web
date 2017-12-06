@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'django.contrib.sites',
 	'blog',
+	'multiupload',
 ]
 SITE_ID = 1
 
@@ -128,18 +129,3 @@ STATICFILES_DIRS = (
 	("img", os.path.join(STATIC_ROOT,'img')),
 )
 
-
-SUIT_CONFIG = {
-	'ADMIN_NAME': 'admin',
-	'HEADER_DATE_FORMAT': '',
-	'HEADER_TIME_FORMAT': 'H:i',
-	'SHOW_REQUIRED_ASTERISK': True,
-	'CONFIRM_UNSAVED_CHANGES': True,
-	'LIST_PER_PAGE': 20,
-	'MENU_OPEN_FIRST_CHILD': True,
-	'MENU':(
-		{
-		'url':'/admin/test','label':'test'
-		}
-		)
-	}
