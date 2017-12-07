@@ -20,10 +20,10 @@ class Gallery(models.Model):
         return self.title 
 
 class Image(models.Model):
-    file = models.FileField('File', upload_to='images/')
+    file = models.FileField('File', upload_to='static/img/')
     gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
     def __str__(self):
-        return self.filename, self.gallery
+        return self.filename
 
     @property
     def filename(self):

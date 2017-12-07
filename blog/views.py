@@ -21,7 +21,7 @@ def spec(request):
 	number_of_imgs=Image.objects.filter(gallery=1).count()#if it return int 2, actually the index is 0 and 1
 	a=[]
 	for i in range(number_of_imgs):
-		a.append(Image.objects.filter(gallery=1)[i].file.name)
+		a.append('/'+Image.objects.filter(gallery=1)[i].file.name)
 	#file=a.values('file')[0]['file']
 	show['title']=title
 	show['content']=content
