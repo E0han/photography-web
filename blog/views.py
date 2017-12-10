@@ -28,3 +28,7 @@ def spec(request):
 	show['file']=a
 	#show['file']='/'+file
 	return render(request, 'spec.html', show)
+def contact(request):
+	show={}
+	show['main_logo_address']='/static/img/logo/logo2.png'
+	return render(request, 'contact.html', show)

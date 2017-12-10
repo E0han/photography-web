@@ -8,35 +8,38 @@
 	.main{
 		height: 100%;
 		width: 100%;
+		position: absolute;
 	}
 	.menu{
-		background-color: yellow;
 		float: left;
 		height: 100%;
-		width: 350px;
+		width: 26%;
 	}
 	.horizantal_box{
-		background-color: green;
 		height: 100%;
+		width: 74%;
 		overflow: hidden;
+		float: left;
+		display:inline-flex;
 	}
 	.Introduction{
-		background-color: blue;
 		float: left;
 		height: 100%;
-		width: 400px;
+		width: 25%;
+
 	}
 	.img{
 		background-color: red;
-		float: left;
 		height: 100%;
-		border:1px solid #336699;
-		display: inline;
+		width: 75%;
+		float: left;
+		overflow-x: scroll;
+		display:inline-flex;
+		
 	}
 	.photos{
-		display: inline;
 		height: 100%;
-		width: 25px;
+		width: auto;
 		float: left;
 	}
 
@@ -46,11 +49,11 @@
 	<title>ETHAN YANG ART - SPEC</title>
 </head>
 <body>
-	<div class='main'>
+	<div class="main">
 		<div class="menu">{% include 'menu.html' %}</div>
 		<div class="horizantal_box">
 			<div class="Introduction">
-				<h3>{{title}}</h3><br><br>
+				<h3>{{title}}</h3><br>
 				<p>{{content}}</p>
 			</div>
 			<div class="img">
