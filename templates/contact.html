@@ -3,10 +3,50 @@
 <head>
 	<script type="text/javascript" src={{js_address}}></script>
 	<title>ETHAN YANG - Contact</title>
+	<style type="text/css">
+		.menu{
+			width: 26%;
+			height: 100%;
+			float: left;
+		}
+		.contact{
+			width: 70%;
+			height: 100%;
+			overflow: scroll;
+			float: right;
+		}
+		h1{
+			font: serif;
+			color: #888888;
+		}
+		.intro-text{
+			font-size: 18px;
+			font: Arial;
+			text-indent:2em;
+
+		}
+		.text{
+			font-size: 20px;
+			font: Arial;
+			text-indent:2em;
+		}
+		.input{
+			text-align:center;
+			float: middle;
+		}
+
+
+	</style>
 </head>
 <body>
 	<div class="main">
 		<div class="menu">{% include 'menu.html' %}</div>
+		<div class="contact">
+			<h1>Contact Infomation</h1><br>
+			<p class="intro-text">This website is a collection of my personal artworks which includes fine art and photography or the other types of production. It's my honer to have you have enjoy and evaluate my artworks.<br> This website was powerder by myself, if you are also interested in programming/coding, and have any questions or suggestions about how to build a website like this, please feel free to contact me in any form which mentioned below</p>
+			<p class="text"><strong>Instagram:  </strong><a style="color: #000099;" href="https://www.instagram.com/ethan._.yyh/">@ethan._.yyh</a></p>
+			{% include 'message.html' %}
+		</div>
 		
 </body>
 </html>
