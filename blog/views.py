@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from blog.models import Introductions, Gallery, Image
-
+from django import forms
+from django.http import HttpResponse
+#coding=utf-8
 
 # Create your views here.
 def hello(response):
@@ -18,10 +20,10 @@ def spec(request):
 	intro=Introductions.objects.filter(brief_intro='spec') 
 	title=intro.values('title')[0]['title']
 	content=intro.values('content')[0]['content']
-	number_of_imgs=Image.objects.filter(gallery=1).count()#if it return int 2, actually the index is 0 and 1
+	number_of_imgs=Image.objects.filter(gallery=3).count()#if it return int 2, actually the index is 0 and 1
 	a=[]
 	for i in range(number_of_imgs):
-		a.append('/'+Image.objects.filter(gallery=1)[i].file.name)
+		a.append('/'+Image.objects.filter(gallery=3)[i].file.name)
 	#file=a.values('file')[0]['file']
 	show['title']=title
 	show['content']=content
@@ -30,5 +32,9 @@ def spec(request):
 	return render(request, 'spec.html', show)
 def contact(request):
 	show={}
+	show['js_address']='/static/js/main.js'
 	show['main_logo_address']='/static/img/logo/logo2.png'
-	return render(request, 'contact.html', show)
+	return render(request, 'contact.html',show)
+
+
+		
