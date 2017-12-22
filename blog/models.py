@@ -12,19 +12,18 @@ class Introductions(models.Model):
 		return self.brief_intro
 
 class Gallery(models.Model):
+    title = models.CharField('Title', max_length=20)
     class Meta:
     	verbose_name_plural = 'Galleries'
-    title = models.CharField('Title', max_length=20)
 
     def __str__(self):
         return self.title 
 
 class Image(models.Model):
     file = models.FileField('File', upload_to='static/img/')
-    gallery = models.ForeignKey('Gallery', related_name='images', blank=True, null=True)
+    gallery = models.ForeignKey(Gallery)
     def __str__(self):
         return self.filename
-
     @property
     def filename(self):
         return self.file.name.rsplit('/', 1)[-1]

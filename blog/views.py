@@ -20,11 +20,12 @@ def spec(request):
 	intro=Introductions.objects.filter(brief_intro='spec') 
 	title=intro.values('title')[0]['title']
 	content=intro.values('content')[0]['content']
-	number_of_imgs=Image.objects.filter(gallery=3).count()#if it return int 2, actually the index is 0 and 1
+	b=Gallery.objects.get(title='spec')#外键的反向朔源
+	this_gallery=b.image_set.all()
+	number_of_imgs=this_gallery.count()#brief_intro, content, id, pub_date, title. if it return int 2, actually the index is 0 and 1
 	a=[]
 	for i in range(number_of_imgs):
-		a.append('/'+Image.objects.filter(gallery=3)[i].file.name)
-	#file=a.values('file')[0]['file']
+		a.append('/'+this_gallery[i].file.name)
 	show['title']=title
 	show['content']=content
 	show['file']=a

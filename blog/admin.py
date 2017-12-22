@@ -11,7 +11,7 @@ class GalleryMultiuploadMixing(object):
 
     def process_uploaded_file(self, uploaded, gallery, request):
         if gallery:
-            image = gallery.images.create(file=uploaded)
+            image = gallery.images.create(file=uploaded,title=gallery)
         else:
             image = Image.objects.create(file=uploaded, gallery=None)
         return {
