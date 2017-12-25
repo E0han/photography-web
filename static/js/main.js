@@ -13,10 +13,10 @@ function get_window_size(){
 	alert(winHeight)
 }
 function mouseout(){
-	document.this.style.textDecoration="none";
+	document.getElementById('only').style.textDecoration="none";
 }
 function mousein(){
-	document.this.style.textDecoration="underline";
+	document.getElementById('only').style.textDecoration="underline";
 }
 function sendmail(people){
 	location="mailto:"+people;
