@@ -71,6 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'web.wsgi.application'
+PREFIX_DEFAULT_LOCALE = True #见下文的说明
+LOCALEURL_USE_ACCEPT_LANGUAGE = True
 
 
 # Database
@@ -111,12 +113,11 @@ LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
-
-
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 SITE_ROOT=os.path.join(os.path.abspath(os.path.dirname(__file__)),'..')

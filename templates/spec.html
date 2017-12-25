@@ -9,20 +9,24 @@
 		height: 100%;
 		width: 100%;
 		position: absolute;
+		background: #E8E8E8;
 	}
 	.menu{
 		float: left;
 		height: 100%;
-		width: 26%;
+		width: 24%;
+		opacity: 0.8;
 	}
 	.horizantal_box{
 		height: 100%;
-		width: 74%;
-		overflow: ;
+		width: 76%;
+		overflow-x:scroll;
 		float: left;
 		display:inline-flex;
 	}
 	.Introduction{
+		margin-left: 5px;
+		margin-right: 20px;
 		float: left;
 		height: 100%;
 		width: 25%;
@@ -32,7 +36,6 @@
 		height: 100%;
 		width: 75%;
 		float: left;
-		overflow-x: scroll;
 		display:inline-flex;
 		
 	}
@@ -40,6 +43,22 @@
 		height: 100%;
 		width: auto;
 		float: left;
+	}
+	.blue_text{
+		color: darkblue;
+	}
+	.intro{
+		font-family:Arial;
+		text-indent: 20px;
+		line-height:25px;
+	}
+	.zh_intro{
+		font-family:Arial;
+		text-indent: 20px;
+		line-height:25px;
+	}
+	h4{
+		font-family: YaHei;
 	}
 
 </style>
@@ -52,8 +71,13 @@
 		<div class="menu">{% include 'menu.html' %}</div>
 		<div class="horizantal_box">
 			<div class="Introduction">
-				<h3 style="font-style: inherit;">{{title}}</h3><br>
-				<p>{{content}}</p>
+				<h2 style="font-style: italic;">{{title}}</h3><br>
+				<p>
+					<h4><STRONG class="blue_text">Author: </STRONG><a onmouseout="this.style.textDecoration='none'" onmouseover="this.style.textDecoration='underline'" style="cursor: pointer;" onclick="sendmail({{author_mail}})">{{author}}</a></h5>
+					<p class="intro">{{content}}</p>
+					<p class="zh_intro">{{zh_content}}</p>
+					<h4><STRONG class="blue_text">Location: </STRONG>{{location}}</h5>
+			</p>
 			</div>
 			<div class="img">
 				{% for item in file %}

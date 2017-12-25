@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404
 # Register your models here.
 from .models import Introductions, Gallery, Image
 
+
 class ImageInlineAdmin(admin.TabularInline):
     model = Image
 
