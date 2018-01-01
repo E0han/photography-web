@@ -13,30 +13,33 @@
 	.menu{
 		float: left;
 		height: 100%;
-		width: 24%;
+		width: 28%;
 		opacity: 0.8;
 	}
+	.emaillist{
+			font-size: 12px;
+		}
 	.horizantal_box{
 		height: 100%;
-		width: 76%;
+		width: 72%;
 		overflow-x:scroll;
 		float: left;
 		display:inline-flex;
 	}
 	.Introduction{
 		margin-left: 5px;
+		overflow-y:scroll;
 		margin-right: 20px;
 		float: left;
 		height: 100%;
-		width: 25%;
+		width: 28%;
 
 	}
 	.img{
 		height: 100%;
-		width: 75%;
+		width: 72%;
 		float: left;
-		display:inline-flex;
-		
+		display:inline-flex;	
 	}
 	.photos{
 		height: 100%;
@@ -49,12 +52,23 @@
 	.intro{
 		font-family:Arial;
 		text-indent: 2em;
-		line-height:25px;
+		line-height:23px;
 	}
 	.zh_intro{
 		font-family:Arial;
 		text-indent: 2em;
-		line-height:25px;
+		line-height:23px;
+	}
+	.capture{
+		background-color: #D0D0D0;
+		opacity: 0.45;
+		width: 100%;
+		height: 25px;
+		text-indent: 3em;
+		font-family: Arial;
+		text-align: right;
+		position: absolute;
+		bottom: 0;
 	}
 	h4{
 		font-family: YaHei;
@@ -62,6 +76,7 @@
 
 </style>
 <head>
+	<link rel="icon" href="{{ico}}" type="image/x-icon">
 	<script type="text/javascript" src={{js_address}}></script>
 	<title>ETHAN YANG ART - SPEC</title>
 </head>
@@ -80,7 +95,12 @@
 			</div>
 			<div class="img">
 				{% for item in file %}
-					<img class="photos" src="{{ item }}">
+				<div style="margin-right: 5px;position:relative;height:100%;width: auto">
+					<img class="photos" src="{{ item.0 }}">
+					<div class="capture">
+						{{ item.1 }}
+					</div>
+				</div>
 				{% endfor %}
 			</div>
 	</div>

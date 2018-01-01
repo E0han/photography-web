@@ -24,6 +24,7 @@ class Gallery(models.Model):
 
 class Image(models.Model):
 	file = models.FileField('File', upload_to='static/img/')
+	capture= models.CharField('Capture', max_length=256)
 	gallery = models.ForeignKey(Gallery)
 	def __str__(self):
 		return self.filename

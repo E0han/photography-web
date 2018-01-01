@@ -24,6 +24,7 @@ def get_count():#record the number of user clicking the page and save to the fil
 
 def SetIndexBackroundImg(request):
 	Address={}
+	Address['ico']='/static/img/logo/logo.ico'
 	Address['Index_bg_img_address']='/static/img/index.png'
 	Address['js_address']='/static/js/main.js'
 	return render(request, 'index.html', Address)
@@ -38,12 +39,13 @@ def spec(request):
 	author=intro.values('author')[0]['author']
 	location=intro.values('location')[0]['location']
 	author_mail=intro.values('author_email')[0]['author_email']
+	#capture=Image.objects.get()
 	b=Gallery.objects.get(title='spec')#外键的反向朔源
 	this_gallery=b.image_set.all()
 	number_of_imgs=this_gallery.count()#brief_intro, content, id, pub_date, title. if it return int 2, actually the index is 0 and 1
-	a=[]
+	a=[]#save the file name
 	for i in range(number_of_imgs):
-		a.append('/'+this_gallery[i].file.name)
+		a.append(['/'+this_gallery[i].file.name,this_gallery[i].capture])
 	show['title']=title
 	show['content']=content
 	show['zh_content']=zh_content
@@ -51,12 +53,16 @@ def spec(request):
 	show['location']=location
 	show['file']=a
 	show['author_mail']=author_mail
+	show['ico']='/static/img/logo/logo.ico'
 	#show['file']='/'+file
 	return render(request, 'spec.html', show)
 def contact(request):
 	show={}
+	show['ico']='/static/img/logo/logo.ico'
 	show['js_address']='/static/js/main.js'
 	show['main_logo_address']='/static/img/logo/logo2.png'
+	show['igico']='/static/img/logo/ig.png'
+	show['emailico']='/static/img/logo/email.png'
 	return render(request, 'contact.html',show)
 
 

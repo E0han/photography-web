@@ -10,11 +10,11 @@ class ImageInlineAdmin(admin.TabularInline):
 
 class GalleryMultiuploadMixing(object):
 
-    def process_uploaded_file(self, uploaded, gallery, request):
+    def process_uploaded_file(self, uploaded, gallery, request,capture):
         if gallery:
-            image = gallery.images.create(file=uploaded,title=gallery)
+            image = gallery.images.create(file=uploaded,title=gallery,capture=capture)
         else:
-            image = Image.objects.create(file=uploaded, gallery=None)
+            image = Image.objects.create(file=uploaded, gallery=None,capture=capture)
         return {
             'url': image.file.url,
             'thumbnail_url': image.file.url,
